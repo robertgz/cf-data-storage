@@ -1,0 +1,28 @@
+type Agency {
+  id: Int
+  name: String
+  software: String
+  url: String
+}
+
+input AgencyInput {
+  #Examples: 'San Diego, City of', 'City of Chula Vista', 'City of Davis'
+  name: String!
+
+  # Examples: EFILE, NETFILE, CAMPAIGNDOCS
+  software: String! # | system | source
+
+  url: String!
+}
+
+type Mutation {
+  createAgency(input: AgencyInput!): Agency
+  deleteAgency(id: Int!): Agency
+}
+
+type Query {
+  agency(id: Int): Agency
+  agencies: [Agency]
+  # agencies(filters: AgencyFilters): [Agency]
+  # findAgency(): [Agency]
+}

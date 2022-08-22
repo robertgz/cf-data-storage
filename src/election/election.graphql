@@ -1,0 +1,24 @@
+
+type Election {
+  id: Int
+  date: String
+  type: String
+  # jurisdictions: [Jurisdiction] # Mayor, City Council District 1, Alpine Fire Protection
+  # candidates: [Candidate]
+}
+
+input ElectionInput {
+  agencyId: Int!
+  date: String!
+  type: String!
+}
+
+type Mutation {
+  createElection(input: ElectionInput!): Election
+  createElections(input: [ElectionInput!]): [Election]
+  deleteElection(id: Int!): Election
+}
+
+type Query {
+  election(id: Int): Election
+}

@@ -32,13 +32,10 @@ export class AgencyService {
   }
 
   async createAgency(data: Prisma.AgencyCreateInput): Promise<Agency> {
-    const { software, url } = data;
+    const { url } = data;
 
     const foundAgency = await this.agency({
-      software_url: {
-        software,
-        url,
-      },
+      url,
     });
 
     if (foundAgency) return foundAgency;

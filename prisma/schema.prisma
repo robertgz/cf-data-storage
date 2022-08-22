@@ -14,10 +14,10 @@ model Agency {
   id          Int @default(autoincrement()) @id
   name        String
   software    String
-  url         String
+  url         String @unique
   elections   Election[]
 
-  @@unique([software, url])
+  // @@unique([software, url])
 }
 
 model Election {

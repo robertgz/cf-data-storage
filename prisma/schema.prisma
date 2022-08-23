@@ -26,4 +26,6 @@ model Election {
   date      String
   agency    Agency @relation(fields: [agencyId], references: [id])
   agencyId  Int
+
+  @@unique([agencyId, date])
 }

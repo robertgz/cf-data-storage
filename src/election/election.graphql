@@ -5,6 +5,7 @@ type Election {
   type: String
   # jurisdictions: [Jurisdiction] # Mayor, City Council District 1, Alpine Fire Protection
   # candidates: [Candidate]
+  agency: Agency
 }
 
 input ElectionInput {

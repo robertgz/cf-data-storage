@@ -1,4 +1,4 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import { ElectionService } from './election.service';
 // import { AgencyService } from './agency.service';
 
@@ -26,10 +26,16 @@ export class ElectionResolver {
 
   @Query()
   async election(@Args('id') id: number) {
-    // return await this.agencyService.agency({
+    // return await this.electionService.election({
     //   id: id,
     // });
   }
+
+  // @ResolveField()
+  // async agency(@Parent() election) {
+  //   const { id } = election;
+  //   // return this.postsService.findAll({ authorId: id });
+  // }
 
   @Mutation()
   async createElection(@Args('input') input: ElectionInput) {
